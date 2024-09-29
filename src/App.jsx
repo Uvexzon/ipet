@@ -334,7 +334,7 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="w-full bg-white">
+      <div className="w-full bg-white px-4 sm:px-0">
         <div className="text-[20px] mt-10 justify-center flex">About us</div>
         <div className="text-[30px] flex justify-center font-bold text-normal">
           Our Mission and Vision
@@ -345,11 +345,11 @@ function App() {
             src={group1}
             alt="/"
           />
-          <div className="flex flex-col ml-20">
+          <div className="flex flex-col">
             <p className="text-[#2543B1] text-left text-[30px] leading-[45px] font-poppins font-semibold mt-20">
               Why Choose Us?
             </p>
-            <p className="font-poppins font-light text-justify mt-8 mr-8">
+            <p className="font-poppins font-light text-justify mt-8 ">
               At the Institute of Engineering and Technologistics, we are
               committed to shaping the future of innovation and technology. Our
               programs are designed to provide students with a solid foundation
@@ -358,9 +358,9 @@ function App() {
             </p>
             <div className="grid grid-cols-2 mt-10">
               {features.map((items) => (
-                <div key={items.title} className="flex gap-5">
+                <div key={items.title} className="flex gap-5 items-center">
                   <div>
-                    <img className="" src={items.icon} alt="/" />
+                    <img src={items.icon} alt="/" />{" "}
                   </div>
                   <div className="flex flex-col justify-start">
                     <h4 className="text-lg font-semibold text-left">
@@ -378,7 +378,7 @@ function App() {
             </button>
           </div>
         </div>
-        <div className="bg-dark mt-16 flex justify-center items-center h-[279px] max-w-[1512px]">
+        <div className="bg-dark mt-16 flex justify-center items-center h-[279px] max-w-[1512px] overflow-x-auto">
           <div className="flex items-center gap-40 justify-center w-[1164px] h-[216px] ">
             {statistics.map((item) => (
               <div className="flex flex-col items-center  text-white justify-around">
@@ -443,7 +443,7 @@ function App() {
             </h2>
           </div>
 
-          <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 shadow-lg p-10">
             {directors.map((director) => (
               <div className="w-full flex flex-col justify-between bg-light">
                 <div className="relative">
