@@ -140,37 +140,53 @@ const statistics = [
 
 function App() {
   const [count, setCount] = useState(0);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  const toggleDrawer = () => {
+    setIsDrawerOpen(!isDrawerOpen);
+  };
 
   return (
     <Wrapper>
       <div className="bg-dark w-full h-[74px] flex items-center text-white justify-center p-2">
-        <div className="w-full max-w-[1360px] h-full flex justify-between">
-          <div className="flex gap-5 h-full items-center">
+        <div className="w-full max-w-[1360px] h-full flex flex-col sm:flex-row justify-between items-center">
+          <div className="flex flex-col sm:flex-row gap-5 h-full items-center">
             <span className="flex gap-1">
               <b>Email:</b>
               <p>ipetsrilanka@gmail.com</p>
             </span>
-            <div className="h-full w-[1px] bg-neutral-300"></div>
+            <div className="hidden sm:block h-full w-[1px] bg-neutral-300"></div>
             <span className="flex gap-1">
-              <b>call:</b>
+              <b>Call:</b>
               <p>+9412345678</p>
             </span>
           </div>
-          <div className="h-full w-60 flex items-center gap-2">
-            <ICFacebook />
-            <ICTwitter />
-            <ICLinkedIn />
-            <ICYoutube />
+          <div className="h-full w-full sm:w-60 flex justify-center sm:justify-end items-center gap-4 sm:gap-8 mt-2 sm:mt-0">
+            <ICFacebook className="text-white text-2xl" />
+            <ICTwitter className="text-white text-2xl" />
+            <ICLinkedIn className="text-white text-2xl" />
+            <ICYoutube className="text-white text-2xl" />
           </div>
         </div>
       </div>
       <div className="w-full flex justify-center p-2">
-        <div className="max-w-[1360px] w-full h-[90px] flex items-center">
+        <div className="max-w-[1360px] w-full h-[90px] flex items-center justify-between">
           <div className="flex items-center gap-5">
             <Logo />
             <LogoText />
           </div>
-          <div className="justify-self-center mx-auto">
+
+          {/* Hamburger Menu Icon (for mobile) */}
+          <div className="block lg:hidden">
+            <button onClick={toggleDrawer} className="focus:outline-none">
+              <span className="block w-8 h-1 bg-black mb-1"></span>
+              <span className="block w-8 h-1 bg-black mb-1"></span>
+              <span className="block w-8 h-1 bg-black"></span>
+            </button>
+          </div>
+
+          {/* Navigation Links */}
+          <div className="hidden lg:block">
             <ul className="flex gap-4">
               <li>
                 <a href="/" className="hover:underline">
@@ -183,11 +199,9 @@ function App() {
                 </a>
               </li>
               <li className="relative group">
-                {/* Parent element with group */}
                 <a href="#" className="hover:underline cursor-pointer">
                   Courses
                 </a>
-                {/* Dropdown */}
                 <ul className="absolute left-0 bg-white border rounded-lg shadow-lg mt-2 p-2 space-y-2 hidden group-hover:block group-focus-within:block">
                   <li>
                     <a
@@ -232,7 +246,9 @@ function App() {
               </li>
             </ul>
           </div>
-          <div className="flex gap-2">
+
+          {/* Search and Login */}
+          <div className="hidden lg:flex gap-2">
             <Button>Login</Button>
             <div className="flex items-center bg-light w-[200px] rounded-sm">
               <input
@@ -244,19 +260,74 @@ function App() {
               </span>
             </div>
           </div>
+
+          {/* Drawer for Mobile */}
+          <div
+            className={`fixed top-0 left-0 h-full bg-white w-64 p-4 z-50 transform transition-transform duration-300 ${
+              isDrawerOpen ? "translate-x-0" : "-translate-x-full"
+            }`}
+          >
+            <button
+              onClick={toggleDrawer}
+              className="absolute top-4 right-4 text-2xl"
+            >
+              &times;
+            </button>
+            <ul className="flex flex-col gap-4 mt-8">
+              <li>
+                <a href="/" className="hover:underline">
+                  Home
+                </a>
+              </li>
+              <li>
+                <a href="/about" className="hover:underline">
+                  About Us
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:underline">
+                  Courses
+                </a>
+              </li>
+              <li>
+                <a href="/memberships" className="hover:underline">
+                  Memberships
+                </a>
+              </li>
+              <li>
+                <a href="/news" className="hover:underline">
+                  News & Events
+                </a>
+              </li>
+              <li>
+                <a href="/contact" className="hover:underline">
+                  Contact Us
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Overlay to close drawer */}
+          {isDrawerOpen && (
+            <div
+              onClick={toggleDrawer}
+              className="fixed inset-0 bg-black opacity-50 z-40 lg:hidden"
+            ></div>
+          )}
         </div>
       </div>
+      {/* Hero Section */}
       <div className="h-screen w-full">
-        <div class="bg-[url('./assets/bgimage.jpeg')] h-full w-full bg-cover bg-center flex justify-center items-center">
+        <div className="bg-[url('./assets/bgimage.jpeg')] h-full w-full bg-cover bg-center flex justify-center items-center px-4">
           <div className="max-w-[1360px] w-full">
-            <div className="w-[900px]">
-              <h5 className="uppercase leading-10 pl-2 relative text-white before:content-[' '] after:absolute after:left-0 after:top-0 after:h-full after:w-1 after:bg-normal">
+            <div className="w-full md:w-[900px]">
+              <h5 className="uppercase leading-10 pl-2 relative text-white before:content-[' '] after:absolute after:left-0 after:top-0 after:h-full after:w-1 after:bg-normal text-base md:text-lg">
                 An Empowered Sri Lanka IPET.
               </h5>
-              <h1 className="text-white text-7xl leading-snug uppercase">
-                <span class="block ">Institute of</span>
-                <span class="block">Professional Engineers</span>
-                <span class="block">and Technologists</span>
+              <h1 className="text-white text-4xl md:text-7xl leading-snug uppercase">
+                <span className="block ">Institute of</span>
+                <span className="block">Professional Engineers</span>
+                <span className="block">and Technologists</span>
               </h1>
               <Button className="mt-4">Explore</Button>
             </div>
@@ -278,7 +349,7 @@ function App() {
             <p className="text-[#2543B1] text-left text-[30px] leading-[45px] font-poppins font-semibold mt-20">
               Why Choose Us?
             </p>
-            <p className="font-poppins font-light text-justify mt-8">
+            <p className="font-poppins font-light text-justify mt-8 mr-8">
               At the Institute of Engineering and Technologistics, we are
               committed to shaping the future of innovation and technology. Our
               programs are designed to provide students with a solid foundation
@@ -310,7 +381,7 @@ function App() {
         <div className="bg-dark mt-16 flex justify-center items-center h-[279px] max-w-[1512px]">
           <div className="flex items-center gap-40 justify-center w-[1164px] h-[216px] ">
             {statistics.map((item) => (
-              <div className="flex flex-col items-center text-white justify-around">
+              <div className="flex flex-col items-center  text-white justify-around">
                 <span className="flex justify-between">{item.icon}</span>
                 <span className="flex justify-between">{item.title}</span>
                 <span className=" font-bold text-2xl">{item.value}</span>
@@ -319,17 +390,18 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="flex justify-center bg-light">
+      {/* Courses Section */}
+      <div className="flex justify-center bg-light px-4">
         <div className="max-w-[1360px] w-full">
           <div className="text-center h-[85px] flex flex-col justify-between my-[100px]">
-            <h3>Courses</h3>
-            <h2 className="text-4xl text-normal font-semibold">
+            <h3 className="text-base md:text-lg">Courses</h3>
+            <h2 className="text-2xl md:text-4xl text-normal font-semibold">
               Our Popular Courses
             </h2>
           </div>
-          <div className="w-full flex justify-between">
+          <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {cards.map((card) => (
-              <div className="w-[430px] flex flex-col justify-between bg-white">
+              <div className="w-full flex flex-col justify-between bg-white">
                 <div className="relative">
                   <div className="w-full object-contain bg-slate-400">
                     <img
@@ -338,15 +410,17 @@ function App() {
                     />
                   </div>
                   <div className="p-4">
-                    <h1 className="text-2xl">{card.title}</h1>
-                    <p className="mt-5">{card.description}</p>
+                    <h1 className="text-xl md:text-2xl">{card.title}</h1>
+                    <p className="mt-5 text-sm md:text-base">
+                      {card.description}
+                    </p>
                   </div>
                 </div>
 
                 <div className="bg-normal text-white p-4 grid grid-cols-3">
-                  <span>{card.student_count} students</span>
-                  <span className="flex justify-center">
-                    {card.duration} students
+                  <span className="text-sm">{card.student_count} students</span>
+                  <span className="flex justify-center text-sm">
+                    {card.duration} hours
                   </span>
                   <span className="flex justify-end">
                     <button>View</button>
@@ -360,20 +434,20 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="flex justify-center">
+      <div className="flex justify-center px-4">
         <div className="max-w-[1360px] w-full ">
           <div className="text-center h-[85px] flex flex-col justify-between my-[100px]">
-            <h3>Our Directors</h3>
-            <h2 className="text-4xl text-normal font-semibold">
+            <h3 className="text-base md:text-lg">Our Directors</h3>
+            <h2 className="text-2xl md:text-4xl text-normal font-semibold">
               Meet the Leadership Team
             </h2>
           </div>
 
-          <div className="w-full flex justify-center gap-4">
+          <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {directors.map((director) => (
-              <div className="w-[270px] flex flex-col justify-between bg-light">
+              <div className="w-full flex flex-col justify-between bg-light">
                 <div className="relative">
-                  <div className="w-[270px] h-[270px] bg-slate-400 overflow-hidden">
+                  <div className="w-full h-[250px] bg-slate-400 overflow-hidden">
                     <img
                       className="w-full h-full object-cover"
                       src={director.image}
@@ -381,10 +455,12 @@ function App() {
                     />
                   </div>
                   <div className="p-4 text-center">
-                    <h1 className="text-2xl text-normal font-semibold">
+                    <h1 className="text-xl md:text-2xl text-normal font-semibold">
                       {director.name}
                     </h1>
-                    <p className="mt-5">{director.designation}</p>
+                    <p className="mt-5 text-sm md:text-base">
+                      {director.designation}
+                    </p>
                   </div>
                 </div>
               </div>
