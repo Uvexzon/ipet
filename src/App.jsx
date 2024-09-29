@@ -30,6 +30,10 @@ import director1 from "./images/director1.jpeg";
 import director2 from "./images/director2.jpeg";
 import director3 from "./images/director3.jpeg";
 import director4 from "./images/director4.jpeg";
+import { ICStar } from "./assets";
+import { ICAward } from "./assets";
+import { ICUser } from "./assets";
+import { ICTree } from "./assets";
 
 const directors = [
   {
@@ -115,22 +119,22 @@ const statistics = [
   {
     title: "Years of Excellence",
     value: "34+",
-    icon: "path-to-icon1.png", // Replace with actual icon path
+    icon: <ICStar />, // Replace with actual icon path
   },
   {
     title: "Awards",
     value: "10+",
-    icon: "path-to-icon2.png", // Replace with actual icon path
+    icon: <ICAward />, // Replace with actual icon path
   },
   {
     title: "Student in Campus",
     value: "5000+",
-    icon: "path-to-icon3.png", // Replace with actual icon path
+    icon: <ICUser />, // Replace with actual icon path
   },
   {
     title: "Programmes",
     value: "20+",
-    icon: "path-to-icon4.png", // Replace with actual icon path
+    icon: <ICTree />, // Replace with actual icon path
   },
 ];
 
@@ -139,7 +143,7 @@ function App() {
 
   return (
     <Wrapper>
-      <div className="bg-normal w-full h-[74px] flex items-center text-white justify-center p-2">
+      <div className="bg-dark w-full h-[74px] flex items-center text-white justify-center p-2">
         <div className="w-full max-w-[1360px] h-full flex justify-between">
           <div className="flex gap-5 h-full items-center">
             <span className="flex gap-1">
@@ -260,7 +264,7 @@ function App() {
         </div>
       </div>
       <div className="w-full bg-white">
-        <div className="text-[20px] justify-center flex">About us</div>
+        <div className="text-[20px] mt-10 justify-center flex">About us</div>
         <div className="text-[30px] flex justify-center font-bold text-normal">
           Our Mission and Vision
         </div>
@@ -303,8 +307,16 @@ function App() {
             </button>
           </div>
         </div>
-        <div className="bg-normal mt-16 flex justify-center h-[279px] max-w-[1512px]">
-          <div className="grid grid-cols-4  w-[1164px] h-[216px] justify-center mt-[49px]"></div>
+        <div className="bg-dark mt-16 flex justify-center items-center h-[279px] max-w-[1512px]">
+          <div className="flex items-center gap-40 justify-center w-[1164px] h-[216px] ">
+            {statistics.map((item) => (
+              <div className="flex flex-col items-center text-white justify-around">
+                <span className="flex justify-between">{item.icon}</span>
+                <span className="flex justify-between">{item.title}</span>
+                <span className=" font-bold text-2xl">{item.value}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
       <div className="flex justify-center bg-light">
