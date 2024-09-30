@@ -187,29 +187,29 @@ function App() {
       <div className="bg-dark w-full h-[74px] flex items-center text-white justify-center p-2">
         <div className="w-full max-w-[1360px] h-full flex justify-between items-center">
           {/* Left Side: Contact Info */}
-          <div className="flex flex-col sm:flex-row gap-5 justify-start">
+          <div className="flex flex-col justify-start gap-5 sm:flex-row">
             <span className="flex gap-1">
-              <b>Call:</b>
+              <b className="font-poppins">Call:</b>
               <p>+9412345678</p>
             </span>
             <div className="hidden sm:block h-full w-[1px] bg-neutral-300"></div>
             <span className="flex gap-1">
-              <b>Email:</b>
+              <b className="font-poppins">Email:</b>
               <p>ipetsrilanka@gmail.com</p>
             </span>
           </div>
 
           {/* Right Side: Social Media Icons */}
           <div className="flex gap-4 sm:gap-8">
-            <ICFacebook className="text-white text-2xl" />
-            <ICTwitter className="text-white text-2xl" />
-            <ICLinkedIn className="text-white text-2xl" />
-            <ICYoutube className="text-white text-2xl" />
+            <ICFacebook className="text-2xl text-white" />
+            <ICTwitter className="text-2xl text-white" />
+            <ICLinkedIn className="text-2xl text-white" />
+            <ICYoutube className="text-2xl text-white" />
           </div>
         </div>
       </div>
 
-      <div className="w-full flex justify-center p-2">
+      <div className="flex justify-center w-full p-2">
         <div className="max-w-[1360px] w-full h-[90px] flex items-center justify-between">
           <div className="flex items-center gap-5">
             <Logo />
@@ -219,37 +219,40 @@ function App() {
           {/* Hamburger Menu Icon (for mobile) */}
           <div className="block lg:hidden">
             <button onClick={toggleDrawer} className="focus:outline-none">
-              <span className="block w-8 h-1 bg-black mb-1"></span>
-              <span className="block w-8 h-1 bg-black mb-1"></span>
+              <span className="block w-8 h-1 mb-1 bg-black"></span>
+              <span className="block w-8 h-1 mb-1 bg-black"></span>
               <span className="block w-8 h-1 bg-black"></span>
             </button>
           </div>
 
           {/* Navigation Links */}
-          <div className="hidden lg:block">
+          <div className="hidden mt-4 lg:block">
             <ul className="flex gap-4">
               <li>
-                <a href="/" className="hover:underline">
+                <a href="/" className="hover:underline font-poppins">
                   Home
                 </a>
               </li>
               <li>
-                <a href="/about" className="hover:underline">
+                <a href="/about" className="hover:underline font-poppins">
                   About Us
                 </a>
               </li>
-              <li className="relative group flex items-center">
-                <a href="#" className="hover:underline cursor-pointer">
+              <li className="relative flex items-center group">
+                <a
+                  href="#"
+                  className="cursor-pointer hover:underline font-poppins"
+                >
                   Courses
                 </a>
-                <span className="ml-2 flex items-center">
+                <span className="flex items-center ml-2">
                   <SlArrowDown /> {/* Add the icon here */}
                 </span>
-                <ul className="absolute left-0 bg-white border rounded-lg shadow-lg mt-2 p-2 space-y-2 hidden group-hover:block group-focus-within:block">
+                <ul className="absolute left-0 hidden p-2 mt-2 space-y-2 bg-white border rounded-lg shadow-lg group-hover:block group-focus-within:block">
                   <li>
                     <a
                       href="/courses/web-development"
-                      className="block p-2 hover:bg-gray-100 rounded"
+                      className="block p-2 rounded hover:bg-gray-100 font-poppins"
                     >
                       Web Development
                     </a>
@@ -257,7 +260,7 @@ function App() {
                   <li>
                     <a
                       href="/courses/data-science"
-                      className="block p-2 hover:bg-gray-100 rounded"
+                      className="block p-2 rounded hover:bg-gray-100 font-poppins"
                     >
                       Data Science
                     </a>
@@ -265,7 +268,7 @@ function App() {
                   <li>
                     <a
                       href="/courses/marketing"
-                      className="block p-2 hover:bg-gray-100 rounded"
+                      className="block p-2 rounded hover:bg-gray-100 font-poppins"
                     >
                       Marketing
                     </a>
@@ -273,17 +276,17 @@ function App() {
                 </ul>
               </li>
               <li>
-                <a href="/memberships" className="hover:underline">
+                <a href="/memberships" className="hover:underline font-poppins">
                   Memberships
                 </a>
               </li>
               <li>
-                <a href="/news" className="hover:underline">
+                <a href="/news" className="hover:underline font-poppins">
                   News & Events
                 </a>
               </li>
               <li>
-                <a href="/contact" className="hover:underline">
+                <a href="/contact" className="hover:underline font-poppins">
                   Contact Us
                 </a>
               </li>
@@ -291,11 +294,11 @@ function App() {
           </div>
 
           {/* Search and Login */}
-          <div className="hidden lg:flex gap-2">
+          <div className="hidden gap-2 lg:flex">
             <Button className="bg-[#2D387D] hover:bg-blue-700">Login</Button>
             <div className="flex items-center bg-light w-[200px] rounded-sm">
               <input
-                className="h-full bg-transparent w-full p-2"
+                className="w-full h-full p-2 bg-transparent"
                 placeholder="Search..."
               />
               <span className="px-1">
@@ -312,7 +315,7 @@ function App() {
           >
             <button
               onClick={toggleDrawer}
-              className="absolute top-4 right-4 text-2xl"
+              className="absolute text-2xl top-4 right-4"
             >
               &times;
             </button>
@@ -372,46 +375,52 @@ function App() {
           {isDrawerOpen && (
             <div
               onClick={toggleDrawer}
-              className="fixed inset-0 bg-black opacity-50 z-40 lg:hidden"
+              className="fixed inset-0 z-40 bg-black opacity-50 lg:hidden"
             ></div>
           )}
         </div>
       </div>
       {/* Hero Section */}
-      <div className="h-screen w-full">
+      <div className="w-full h-screen">
         <div className="bg-[url('./assets/bgimage.jpeg')] h-full w-full bg-cover bg-center flex justify-center items-center px-4">
           <div className="max-w-[1360px] w-full">
             <div className="w-full md:w-[900px]">
               <div className="flex items-center">
                 <ReactTyped
-                  className="md:text-2xl sm:text-4xl font-bold pl-2 text-white"
+                  className="pl-2 font-bold text-white md:text-2xl sm:text-4xl"
                   strings={["BTB", "BTC", "SASS"]}
                   typeSpeed={120}
                   backSpeed={140}
                   loop
                 />
-                <h5 className="uppercase leading-10 pl-2 relative text-white before:content-[' '] after:absolute after:left-0 after:top-0 after:h-full after:w-1  text-base md:text-lg">
+                <h5 className="uppercase leading-10 pl-2 font-poppins relative text-white before:content-[' '] after:absolute after:left-0 after:top-0 after:h-full after:w-1  text-base md:text-lg">
                   An Empowered Sri Lanka IPET.
                 </h5>
               </div>
-              <h1 className="text-white text-4xl md:text-7xl leading-snug uppercase">
-                <span className="block ">Institute of</span>
-                <span className="block">Professional Engineers</span>
-                <span className="block">and Technologists</span>
+              <h1 className="text-4xl leading-snug text-white uppercase md:text-7xl">
+                <span className="block font-poppins ">Institute of</span>
+                <span className="block font-poppins">
+                  Professional Engineers
+                </span>
+                <span className="block font-poppins">and Technologists</span>
               </h1>
-              <Button className="mt-4 hover:bg-blue-700">Explore</Button>
+              <Button className="mt-4 hover:bg-blue-700 font-poppins">
+                Explore
+              </Button>
             </div>
           </div>
         </div>
       </div>
-      <div className="w-full bg-white px-4 sm:px-0">
-        <div className="text-[20px] mt-20 justify-center flex">About us</div>
-        <div className="text-[30px] flex justify-center font-bold text-normal">
+      <div className="w-full px-4 bg-white sm:px-0">
+        <div className="text-[20px] mt-20 justify-center flex font-poppins">
+          About us
+        </div>
+        <div className="text-[30px] flex justify-center font-bold text-normal font-poppins">
           Our Mission and Vision
         </div>
 
         <div className="gap-[30px] h-auto mx-auto grid md:grid-cols-2 items-start">
-          <div className="w-full flex justify-center">
+          <div className="flex justify-center w-full">
             <img
               className="w-[526px] h-[494px] mt-20 object-cover"
               src={group1}
@@ -423,7 +432,7 @@ function App() {
             <p className="text-[#2543B1] text-left text-[30px] leading-[45px] font-poppins font-semibold mt-20">
               Why Choose Us?
             </p>
-            <p className="font-poppins font-light text-justify mt-8 px-4">
+            <p className="px-4 mt-8 font-light text-justify font-poppins">
               At the Institute of Engineering and Technologistics, we are
               committed to shaping the future of innovation and technology. Our
               programs are designed to provide students with a solid foundation
@@ -432,22 +441,22 @@ function App() {
             </p>
             <div className="grid grid-cols-2 mt-10">
               {features.map((items) => (
-                <div key={items.title} className="flex gap-5 items-center">
+                <div key={items.title} className="flex items-center gap-5">
                   <div>
                     <img src={items.icon} alt="/" />
                   </div>
                   <div className="flex flex-col justify-start">
-                    <h4 className="text-lg font-semibold text-left">
+                    <h4 className="text-lg font-semibold text-left font-poppins">
                       {items.title}
                     </h4>
-                    <p className="text-sm font-light text-left">
+                    <p className="text-sm font-light text-left font-poppins">
                       {items.description}
                     </p>
                   </div>
                 </div>
               ))}
             </div>
-            <button className="bg-[#2D387D] w-[115px] mt-6 h-[44px] hover:bg-blue-700 px-5 py-1 text-white rounded-sm ml-2">
+            <button className="bg-[#2D387D] w-[115px] mt-6 h-[44px] hover:bg-blue-700 px-5 py-1 text-white rounded-sm ml-2 font-poppins">
               Explore
             </button>
           </div>
@@ -458,11 +467,13 @@ function App() {
             {statistics.map((item) => (
               <div
                 key={item.title}
-                className="flex flex-col items-center text-white justify-around"
+                className="flex flex-col items-center justify-around text-white"
               >
                 <span className="flex justify-between">{item.icon}</span>
-                <span className="flex justify-between">{item.title}</span>
-                <span className="font-bold text-2xl">{item.value}</span>
+                <span className="flex justify-between font-poppins">
+                  {item.title}
+                </span>
+                <span className="text-2xl font-bold">{item.value}</span>
               </div>
             ))}
           </div>
@@ -470,27 +481,27 @@ function App() {
       </div>
 
       {/* Courses Section */}
-      <div className="flex justify-center bg-light px-4">
+      <div className="flex justify-center px-4 bg-light">
         <div className="max-w-[1360px] w-full">
           <div className="text-center h-[85px] flex flex-col justify-between my-[100px]">
-            <h3 className="text-base md:text-lg">Courses</h3>
-            <h2 className="text-2xl md:text-4xl text-normal font-semibold">
+            <h3 className="text-base md:text-lg font-poppins">Courses</h3>
+            <h2 className="text-2xl font-semibold md:text-4xl text-normal font-poppins">
               Our Popular Courses
             </h2>
           </div>
 
           <div className="hidden md:block">
             {/* Show grid for medium and larger screens */}
-            <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
               {cards.map((card, index) => (
                 <div
                   key={index}
-                  className="w-full flex flex-col justify-between bg-white"
+                  className="flex flex-col justify-between w-full bg-white"
                 >
                   <div className="relative">
-                    <div className="w-full object-contain bg-slate-400">
+                    <div className="object-contain w-full bg-slate-400">
                       <img
-                        className="h-full w-full object-contain"
+                        className="object-contain w-full h-full"
                         src={card.image}
                         alt={card.title}
                       />
@@ -498,25 +509,25 @@ function App() {
                     <div className="p-4 min-h-[150px]">
                       {" "}
                       {/* Adjust the min height */}
-                      <h1 className="text-xl font-bold md:text-2xl line-clamp-2">
+                      <h1 className="text-xl font-bold md:text-2xl line-clamp-2 font-poppins">
                         {card.title}
                       </h1>
-                      <p className="mt-5 text-sm md:text-base line-clamp-3">
+                      <p className="mt-5 text-sm md:text-base line-clamp-3 font-poppins">
                         {card.description}
                       </p>
                     </div>
                   </div>
 
                   <div className="bg-[#2D387D] text-white p-4 grid grid-cols-3">
-                    <span className="text-sm flex items-center">
+                    <span className="flex items-center text-sm font-poppins">
                       <FaUser className="mr-1" />
                       {card.student_count} students
                     </span>
-                    <span className="flex justify-center items-center text-sm">
-                      <FaClock className="mr-1" />
+                    <span className="flex items-center justify-center text-sm font-poppins">
+                      <FaClock className="mr-1 " />
                       {card.duration} months
                     </span>
-                    <span className="flex justify-end">
+                    <span className="flex justify-end font-poppins">
                       <button>View</button>
                     </span>
                   </div>
@@ -540,26 +551,26 @@ function App() {
                       {" "}
                       {/* Fixed height for image */}
                       <img
-                        className="h-full w-full object-fill"
+                        className="object-fill w-full h-full"
                         src={card.image}
                         alt={card.title}
                       />
                     </div>
-                    <div className="p-4 flex flex-col flex-grow">
-                      <h1 className="text-xl font-bold md:text-2xl overflow-hidden text-ellipsis whitespace-nowrap mb-2">
+                    <div className="flex flex-col flex-grow p-4">
+                      <h1 className="mb-2 overflow-hidden text-xl font-bold md:text-2xl text-ellipsis whitespace-nowrap">
                         {card.title}
                       </h1>
-                      <p className="text-sm md:text-base flex-grow overflow-hidden text-ellipsis">
+                      <p className="flex-grow overflow-hidden text-sm md:text-base text-ellipsis">
                         {card.description}
                       </p>
                     </div>
                   </div>
                   <div className="bg-[#2D387D] text-white p-4 grid grid-cols-3">
-                    <span className="text-sm flex items-center">
+                    <span className="flex items-center text-sm">
                       <FaUser className="mr-1" />
                       {card.student_count} students
                     </span>
-                    <span className="flex justify-center items-center text-sm">
+                    <span className="flex items-center justify-center text-sm">
                       <FaClock className="mr-1" />
                       {card.duration} months
                     </span>
@@ -572,8 +583,8 @@ function App() {
             </Slider>
           </div>
 
-          <div className="w-full flex justify-center mt-10 mb-20">
-            <Button className="bg-[#2D387D] hover:bg-blue-700 text-white py-2 px-4 rounded">
+          <div className="flex justify-center w-full mt-10 mb-20">
+            <Button className="bg-[#2D387D] hover:bg-blue-700 text-white py-2 px-4 rounded font-poppins">
               All Courses
             </Button>
           </div>
@@ -583,33 +594,33 @@ function App() {
       <div className="flex justify-center px-4">
         <div className="max-w-[1360px] w-full">
           <div className="text-center h-[85px] flex flex-col justify-between my-[100px]">
-            <h3 className="text-base md:text-lg">Our Directors</h3>
-            <h2 className="text-2xl md:text-4xl text-normal font-semibold">
+            <h3 className="text-base md:text-lg font-poppins">Our Directors</h3>
+            <h2 className="text-2xl font-semibold md:text-4xl text-normal font-poppins">
               Meet the Leadership Team
             </h2>
           </div>
 
           {/* Grid for medium and large screens */}
           <div className="hidden md:block">
-            <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 shadow-lg p-10">
+            <div className="grid w-full grid-cols-1 gap-4 p-10 shadow-lg md:grid-cols-2 lg:grid-cols-4">
               {directors.map((director, index) => (
                 <div
                   key={index}
-                  className="w-full flex flex-col justify-between bg-light"
+                  className="flex flex-col justify-between w-full bg-light"
                 >
                   <div className="relative">
                     <div className="w-full h-[250px] bg-slate-400 overflow-hidden">
                       <img
-                        className="w-full h-full object-cover"
+                        className="object-cover w-full h-full"
                         src={director.image}
                         alt={director.name}
                       />
                     </div>
                     <div className="p-4 text-center">
-                      <h1 className="text-xl md:text-2xl text-normal font-semibold">
+                      <h1 className="text-xl font-semibold font-poppins md:text-2xl text-normal">
                         {director.name}
                       </h1>
-                      <p className="mt-5 text-sm md:text-base">
+                      <p className="mt-5 text-sm md:text-base font-poppins">
                         {director.designation}
                       </p>
                     </div>
@@ -625,7 +636,7 @@ function App() {
               {directors.map((director, index) => (
                 <div
                   key={index}
-                  className="w-full flex flex-col justify-between bg-light p-4"
+                  className="flex flex-col justify-between w-full p-4 bg-light"
                 >
                   <div className="relative">
                     <div className="w-full h-[250px] bg-slate-400 overflow-hidden">
@@ -636,7 +647,7 @@ function App() {
                       />
                     </div>
                     <div className="p-4 text-center">
-                      <h1 className="text-xl md:text-2xl text-normal font-semibold">
+                      <h1 className="text-xl font-semibold md:text-2xl text-normal">
                         {director.name}
                       </h1>
                       <p className="mt-5 text-sm md:text-base">
@@ -649,8 +660,8 @@ function App() {
             </Slider>
           </div>
 
-          <div className="w-full flex justify-center mt-10 mb-20">
-            <Button className="bg-[#2D387D] hover:bg-blue-700 text-white py-2 px-4 rounded">
+          <div className="flex justify-center w-full mt-10 mb-20">
+            <Button className="bg-[#2D387D] hover:bg-blue-700 text-white py-2 px-4 rounded font-poppins">
               All Courses
             </Button>
           </div>
