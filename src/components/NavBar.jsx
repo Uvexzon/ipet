@@ -21,28 +21,7 @@ function Navbar() {
 
   return (
     <>
-      <div className="bg-dark w-full h-[74px] flex items-center text-white justify-center p-2">
-        <div className="w-full max-w-[1360px] h-full flex flex-col sm:flex-row justify-between items-center">
-          <div className="flex flex-col sm:flex-row gap-5 h-full items-center">
-            <span className="flex gap-1">
-              <b>Email:</b>
-              <p>ipetsrilanka@gmail.com</p>
-            </span>
-            <div className="hidden sm:block h-full w-[1px] bg-neutral-300"></div>
-            <span className="flex gap-1">
-              <b>Call:</b>
-              <p>+9412345678</p>
-            </span>
-          </div>
-          <div className="h-full w-full sm:w-60 flex justify-center sm:justify-end items-center gap-4 sm:gap-8 mt-2 sm:mt-0">
-            <ICFacebook className="text-white text-2xl" />
-            <ICTwitter className="text-white text-2xl" />
-            <ICLinkedIn className="text-white text-2xl" />
-            <ICYoutube className="text-white text-2xl" />
-          </div>
-        </div>
-      </div>
-      <div className="w-full flex justify-center p-2">
+      <div className="flex justify-center w-full p-2">
         <div className="max-w-[1360px] w-full h-[90px] flex items-center justify-between">
           <div className="flex items-center gap-5">
             <Logo />
@@ -52,34 +31,40 @@ function Navbar() {
           {/* Hamburger Menu Icon (for mobile) */}
           <div className="block lg:hidden">
             <button onClick={toggleDrawer} className="focus:outline-none">
-              <span className="block w-8 h-1 bg-black mb-1"></span>
-              <span className="block w-8 h-1 bg-black mb-1"></span>
+              <span className="block w-8 h-1 mb-1 bg-black"></span>
+              <span className="block w-8 h-1 mb-1 bg-black"></span>
               <span className="block w-8 h-1 bg-black"></span>
             </button>
           </div>
 
           {/* Navigation Links */}
-          <div className="hidden lg:block">
+          <div className="hidden mt-4 lg:block">
             <ul className="flex gap-4">
               <li>
-                <a href="/" className="hover:underline">
+                <a href="/" className="hover:underline font-poppins">
                   Home
                 </a>
               </li>
               <li>
-                <a href="/about" className="hover:underline">
+                <a href="/about" className="hover:underline font-poppins">
                   About Us
                 </a>
               </li>
-              <li className="relative group">
-                <a href="#" className="hover:underline cursor-pointer">
+              <li className="relative flex items-center group">
+                <a
+                  href="#"
+                  className="cursor-pointer hover:underline font-poppins"
+                >
                   Courses
                 </a>
-                <ul className="absolute left-0 bg-white border rounded-lg shadow-lg mt-2 p-2 space-y-2 hidden group-hover:block group-focus-within:block">
+                <span className="flex items-center ml-2">
+                  <SlArrowDown /> {/* Add the icon here */}
+                </span>
+                <ul className="absolute left-0 hidden p-2 mt-2 space-y-2 bg-white border rounded-lg shadow-lg group-hover:block group-focus-within:block">
                   <li>
                     <a
                       href="/courses/web-development"
-                      className="block p-2 hover:bg-gray-100 rounded"
+                      className="block p-2 rounded hover:bg-gray-100 font-poppins"
                     >
                       Web Development
                     </a>
@@ -87,7 +72,7 @@ function Navbar() {
                   <li>
                     <a
                       href="/courses/data-science"
-                      className="block p-2 hover:bg-gray-100 rounded"
+                      className="block p-2 rounded hover:bg-gray-100 font-poppins"
                     >
                       Data Science
                     </a>
@@ -95,7 +80,7 @@ function Navbar() {
                   <li>
                     <a
                       href="/courses/marketing"
-                      className="block p-2 hover:bg-gray-100 rounded"
+                      className="block p-2 rounded hover:bg-gray-100 font-poppins"
                     >
                       Marketing
                     </a>
@@ -103,17 +88,17 @@ function Navbar() {
                 </ul>
               </li>
               <li>
-                <a href="/memberships" className="hover:underline">
+                <a href="/memberships" className="hover:underline font-poppins">
                   Memberships
                 </a>
               </li>
               <li>
-                <a href="/news" className="hover:underline">
+                <a href="/news" className="hover:underline font-poppins">
                   News & Events
                 </a>
               </li>
               <li>
-                <a href="/contact" className="hover:underline">
+                <a href="/contact" className="hover:underline font-poppins">
                   Contact Us
                 </a>
               </li>
@@ -121,11 +106,11 @@ function Navbar() {
           </div>
 
           {/* Search and Login */}
-          <div className="hidden lg:flex gap-2">
-            <Button>Login</Button>
+          <div className="hidden gap-2 lg:flex">
+            <Button className="bg-[#2D387D] hover:bg-blue-700">Login</Button>
             <div className="flex items-center bg-light w-[200px] rounded-sm">
               <input
-                className="h-full bg-transparent w-full p-2"
+                className="w-full h-full p-2 bg-transparent"
                 placeholder="Search..."
               />
               <span className="px-1">
@@ -142,41 +127,56 @@ function Navbar() {
           >
             <button
               onClick={toggleDrawer}
-              className="absolute top-4 right-4 text-2xl"
+              className="absolute text-2xl top-4 right-4"
             >
               &times;
             </button>
             <ul className="flex flex-col gap-4 mt-8">
               <li>
-                <a href="/" className="hover:underline">
+                <a
+                  href="/"
+                  className="hover:text-blue-500 hover:border-b-2 hover:border-blue-500"
+                >
                   Home
                 </a>
               </li>
               <li>
-                <a href="/about" className="hover:underline">
+                <a
+                  href="/about"
+                  className="hover:text-blue-500 hover:border-b-2 hover:border-blue-500"
+                >
                   About Us
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <a
+                  href="#"
+                  className="hover:text-blue-500 hover:border-b-2 hover:border-blue-500"
+                >
                   Courses
                 </a>
-                <span className="ml-2 flex items-center">
-                  <SlArrowDown /> {/* Add the icon here */}
-                </span>
               </li>
               <li>
-                <a href="/memberships" className="hover:underline">
+                <a
+                  href="/memberships"
+                  className="hover:text-blue-500 hover:border-b-2 hover:border-blue-500"
+                >
                   Memberships
                 </a>
               </li>
               <li>
-                <a href="/news" className="hover:underline">
+                <a
+                  href="/news"
+                  className="hover:text-blue-500 hover:border-b-2 hover:border-blue-500"
+                >
                   News & Events
                 </a>
               </li>
               <li>
-                <a href="/contact" className="hover:underline">
+                <a
+                  href="/contact"
+                  className="hover:text-blue-500 hover:border-b-2 hover:border-blue-500"
+                >
                   Contact Us
                 </a>
               </li>
@@ -187,7 +187,7 @@ function Navbar() {
           {isDrawerOpen && (
             <div
               onClick={toggleDrawer}
-              className="fixed inset-0 bg-black opacity-50 z-40 lg:hidden"
+              className="fixed inset-0 z-40 bg-black opacity-50 lg:hidden"
             ></div>
           )}
         </div>
