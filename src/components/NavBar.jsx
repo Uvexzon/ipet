@@ -41,18 +41,18 @@ function Navbar() {
           <div className="hidden mt-4 lg:block">
             <ul className="flex gap-4">
               <li>
-                <a href="/" className="hover:underline font-poppins">
+                <a href="#hero" className="hover:underline font-poppins">
                   Home
                 </a>
               </li>
               <li>
-                <a href="/about" className="hover:underline font-poppins">
+                <a href="#about" className="hover:underline font-poppins">
                   About Us
                 </a>
               </li>
               <li className="relative flex items-center group">
                 <a
-                  href="#"
+                  href="#courses"
                   className="cursor-pointer hover:underline font-poppins"
                 >
                   Courses
@@ -88,17 +88,17 @@ function Navbar() {
                 </ul>
               </li>
               <li>
-                <a href="/memberships" className="hover:underline font-poppins">
+                <a href="#memberships" className="hover:underline font-poppins">
                   Memberships
                 </a>
               </li>
               <li>
-                <a href="/news" className="hover:underline font-poppins">
+                <a href="#news" className="hover:underline font-poppins">
                   News & Events
                 </a>
               </li>
               <li>
-                <a href="/contact" className="hover:underline font-poppins">
+                <a href="#contact" className="hover:underline font-poppins">
                   Contact Us
                 </a>
               </li>

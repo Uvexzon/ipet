@@ -19,17 +19,22 @@ function App() {
       <ContactInfo />
       <Navbar />
       {/* Hero Section */}
-      <Hero />
-      <About />
-
+      <div id="hero">
+        <Hero />
+      </div>
+      <div id="about">
+        <About />
+      </div>
       {/* Courses Section */}
-      <Courses />
-
-      <div className="flex justify-center px-4">
+      <div id="courses">
+        <Courses />
+      </div>
+      <div className="flex justify-center px-4" id="memberships">
         <Directors />
       </div>
       <Footer />
     </Wrapper>
   );
 }
+
 export default App;
