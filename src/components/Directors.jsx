@@ -29,10 +29,10 @@ const Directors = () => {
                   />
                 </div>
                 <div className="p-4 text-center">
-                  <h1 className="text-xl font-semibold font-poppins md:text-2xl text-normal">
+                  <h1 className="overflow-hidden text-xl font-semibold font-poppins md:text-2xl text-normal h-14">
                     {director.name}
                   </h1>
-                  <p className="mt-5 text-sm md:text-base font-poppins">
+                  <p className="h-6 mt-2 overflow-hidden text-sm md:text-base font-poppins text-ellipsis">
                     {director.designation}
                   </p>
                 </div>

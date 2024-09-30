@@ -14,6 +14,12 @@ import frame33 from "../assets/Frame 33.svg";
 import frame34 from "../assets/Frame 34.svg";
 import frame35 from "../assets/Frame 35.svg";
 import frame36 from "../assets/Frame 36.svg";
+import frame17 from "../assets/Frame 17.svg";
+import frame32 from "../assets/Frame 32.svg";
+import frame19 from "../assets/Frame 19.svg";
+import frame20 from "../assets/Frame 20.svg";
+import frame21 from "../assets/Frame 21.svg";
+import frame22 from "../assets/Frame 22.svg"
 
 import image1 from "../assets/Images/image1.jpeg";
 import image2 from "../assets/images/image2.jpeg";
@@ -26,32 +32,32 @@ export const features = [
   {
     title: "Facilities",
     description: "Computer Facilities",
-    icon: frame31,
+    icon: frame17,
   },
   {
     title: "Experienced Faculty",
     description: "Learn from experts",
-    icon: frame34,
+    icon: frame20,
   },
   {
     title: "Oracle Academy",
     description: "Partnership",
-    icon: frame30,
+    icon: frame32,
   },
   {
     title: "Cisco Academy",
     description: "Partnership",
-    icon: frame35,
+    icon:frame21,
   },
   {
     title: "Online Skills",
     description: "Career Support",
-    icon: frame33,
+    icon: frame19,
   },
   {
     title: "Industry-Relevant",
     description: "Career Support",
-    icon: frame36,
+    icon: frame22,
   },
 ];
 

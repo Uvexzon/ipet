@@ -32,26 +32,42 @@ const About = () => {
             both engineering and logistics, combining theoretical knowledge with
             practical experience.
           </p>
-          <div className="grid grid-cols-2 mt-10">
+          <div className="grid grid-cols-1 gap-5 mt-10 md:grid-cols-2">
             {features.map((item) => (
-              <div key={item.title} className="flex items-center gap-5">
-                <div>
-                  <img src={item.icon} alt={item.title} />
+              <div
+                key={item.title}
+                className="flex flex-col items-center gap-5 md:flex-row"
+              >
+                {" "}
+                {/* Center for mobile */}
+                <div className="w-[60px] flex-shrink-0">
+                  <img
+                    src={item.icon}
+                    alt={item.title}
+                    className="object-contain w-full h-full"
+                  />
                 </div>
-                <div className="flex flex-col justify-start">
-                  <h4 className="text-lg font-semibold text-left font-poppins">
+                <div className="flex flex-col items-center text-center md:text-left">
+                  {" "}
+                  {/* Center text on mobile only */}
+                  <h4 className="text-lg font-semibold font-poppins line-clamp-2">
                     {item.title}
                   </h4>
-                  <p className="text-sm font-light text-left font-poppins">
+                  <p className="text-sm font-light font-poppins line-clamp-3">
                     {item.description}
                   </p>
                 </div>
               </div>
             ))}
           </div>
-          <button className="bg-[#2D387D] w-[115px] mt-6 h-[44px] hover:bg-blue-700 px-5 py-1 text-white rounded-sm ml-2 font-poppins">
-            Explore
-          </button>
+
+          <div className="flex justify-center mt-6 md:justify-start">
+            {" "}
+            {/* Center on mobile only */}
+            <button className="bg-[#2D387D] w-[115px] h-[44px] hover:bg-blue-700 px-5 py-1 text-white rounded-sm font-poppins">
+              Explore
+            </button>
+          </div>
         </div>
       </div>
 

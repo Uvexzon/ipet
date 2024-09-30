@@ -32,13 +32,11 @@ const Courses = () => {
                       alt={card.title}
                     />
                   </div>
-                  <div className="p-4 min-h-[150px]">
-                    {" "}
-                    {/* Adjust the min height */}
-                    <h1 className="text-xl font-bold md:text-2xl line-clamp-2 font-poppins">
+                  <div className="p-4">
+                    <h1 className="mt-4 overflow-hidden text-xl font-bold md:text-2xl line-clamp-2 font-poppins h-14">
                       {card.title}
                     </h1>
-                    <p className="mt-5 text-sm md:text-base line-clamp-3 font-poppins">
+                    <p className="h-16 mt-6 overflow-hidden text-sm md:text-base line-clamp-3 font-poppins">
                       {card.description}
                     </p>
                   </div>
