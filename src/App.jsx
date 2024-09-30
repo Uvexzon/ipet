@@ -1,4 +1,12 @@
 import Wrapper from "./components/Wrapper";
+import { SlArrowDown } from "react-icons/sl";
+import { FaUser } from "react-icons/fa";
+import { FaClock } from "react-icons/fa";
+import { ReactTyped } from "react-typed";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 import {
   ICFacebook,
   ICLinkedIn,
@@ -18,7 +26,6 @@ import frame33 from "./assets/Frame 33.svg";
 import frame34 from "./assets/Frame 34.svg";
 import frame35 from "./assets/Frame 35.svg";
 import frame36 from "./assets/Frame 36.svg";
-import star from "./assets/material-symbols_star-outline.svg";
 import "./App.css";
 import "./index.css";
 
@@ -34,6 +41,7 @@ import { ICStar } from "./assets";
 import { ICAward } from "./assets";
 import { ICUser } from "./assets";
 import { ICTree } from "./assets";
+import Footer from "./components/footer";
 
 const directors = [
   {
@@ -65,21 +73,21 @@ const cards = [
     title: "Python Programming Course",
     description: "Unlock Your Potential with Our Python Programming Course!",
     student_count: 20,
-    duration: 20,
+    duration: 0o3,
   },
   {
     image: image2,
     title: "Certificate in English Communication Essential",
     description: "Unlock Your Potential with Our Python Programming Course!",
     student_count: 20,
-    duration: 20,
+    duration: 0o6,
   },
   {
     image: image3,
     title: "Python Programming Course",
     description: "Unlock Your Potential with Our Python Programming Course!",
     student_count: 20,
-    duration: 20,
+    duration: 0o3,
   },
 ];
 
@@ -119,24 +127,52 @@ const statistics = [
   {
     title: "Years of Excellence",
     value: "34+",
-    icon: <ICStar />, // Replace with actual icon path
+    icon: <ICStar />,
   },
   {
     title: "Awards",
     value: "10+",
-    icon: <ICAward />, // Replace with actual icon path
+    icon: <ICAward />,
   },
   {
     title: "Student in Campus",
     value: "5000+",
-    icon: <ICUser />, // Replace with actual icon path
+    icon: <ICUser />,
   },
   {
     title: "Programmes",
     value: "20+",
-    icon: <ICTree />, // Replace with actual icon path
+    icon: <ICTree />,
   },
 ];
+// Slider settings
+const settings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1, // 1 slide for mobile
+  slidesToScroll: 1,
+  responsive: [
+    {
+      breakpoint: 768, // Mobile breakpoint
+      settings: {
+        slidesToShow: 1,
+      },
+    },
+    {
+      breakpoint: 1024, // Tablet breakpoint
+      settings: {
+        slidesToShow: 2, // 2 slides for tablets
+      },
+    },
+    {
+      breakpoint: 1360, // Desktop breakpoint
+      settings: {
+        slidesToShow: 3, // 3 slides for desktop
+      },
+    },
+  ],
+};
 
 function App() {
   const [count, setCount] = useState(0);
@@ -149,19 +185,22 @@ function App() {
   return (
     <Wrapper>
       <div className="bg-dark w-full h-[74px] flex items-center text-white justify-center p-2">
-        <div className="w-full max-w-[1360px] h-full flex flex-col sm:flex-row justify-between items-center">
-          <div className="flex flex-col sm:flex-row gap-5 h-full items-center">
-            <span className="flex gap-1">
-              <b>Email:</b>
-              <p>ipetsrilanka@gmail.com</p>
-            </span>
-            <div className="hidden sm:block h-full w-[1px] bg-neutral-300"></div>
+        <div className="w-full max-w-[1360px] h-full flex justify-between items-center">
+          {/* Left Side: Contact Info */}
+          <div className="flex flex-col sm:flex-row gap-5 justify-start">
             <span className="flex gap-1">
               <b>Call:</b>
               <p>+9412345678</p>
             </span>
+            <div className="hidden sm:block h-full w-[1px] bg-neutral-300"></div>
+            <span className="flex gap-1">
+              <b>Email:</b>
+              <p>ipetsrilanka@gmail.com</p>
+            </span>
           </div>
-          <div className="h-full w-full sm:w-60 flex justify-center sm:justify-end items-center gap-4 sm:gap-8 mt-2 sm:mt-0">
+
+          {/* Right Side: Social Media Icons */}
+          <div className="flex gap-4 sm:gap-8">
             <ICFacebook className="text-white text-2xl" />
             <ICTwitter className="text-white text-2xl" />
             <ICLinkedIn className="text-white text-2xl" />
@@ -169,6 +208,7 @@ function App() {
           </div>
         </div>
       </div>
+
       <div className="w-full flex justify-center p-2">
         <div className="max-w-[1360px] w-full h-[90px] flex items-center justify-between">
           <div className="flex items-center gap-5">
@@ -198,10 +238,13 @@ function App() {
                   About Us
                 </a>
               </li>
-              <li className="relative group">
+              <li className="relative group flex items-center">
                 <a href="#" className="hover:underline cursor-pointer">
                   Courses
                 </a>
+                <span className="ml-2 flex items-center">
+                  <SlArrowDown /> {/* Add the icon here */}
+                </span>
                 <ul className="absolute left-0 bg-white border rounded-lg shadow-lg mt-2 p-2 space-y-2 hidden group-hover:block group-focus-within:block">
                   <li>
                     <a
@@ -249,7 +292,7 @@ function App() {
 
           {/* Search and Login */}
           <div className="hidden lg:flex gap-2">
-            <Button>Login</Button>
+            <Button className="bg-[#2D387D] hover:bg-blue-700">Login</Button>
             <div className="flex items-center bg-light w-[200px] rounded-sm">
               <input
                 className="h-full bg-transparent w-full p-2"
@@ -275,32 +318,50 @@ function App() {
             </button>
             <ul className="flex flex-col gap-4 mt-8">
               <li>
-                <a href="/" className="hover:underline">
+                <a
+                  href="/"
+                  className="hover:text-blue-500 hover:border-b-2 hover:border-blue-500"
+                >
                   Home
                 </a>
               </li>
               <li>
-                <a href="/about" className="hover:underline">
+                <a
+                  href="/about"
+                  className="hover:text-blue-500 hover:border-b-2 hover:border-blue-500"
+                >
                   About Us
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <a
+                  href="#"
+                  className="hover:text-blue-500 hover:border-b-2 hover:border-blue-500"
+                >
                   Courses
                 </a>
               </li>
               <li>
-                <a href="/memberships" className="hover:underline">
+                <a
+                  href="/memberships"
+                  className="hover:text-blue-500 hover:border-b-2 hover:border-blue-500"
+                >
                   Memberships
                 </a>
               </li>
               <li>
-                <a href="/news" className="hover:underline">
+                <a
+                  href="/news"
+                  className="hover:text-blue-500 hover:border-b-2 hover:border-blue-500"
+                >
                   News & Events
                 </a>
               </li>
               <li>
-                <a href="/contact" className="hover:underline">
+                <a
+                  href="/contact"
+                  className="hover:text-blue-500 hover:border-b-2 hover:border-blue-500"
+                >
                   Contact Us
                 </a>
               </li>
@@ -321,35 +382,48 @@ function App() {
         <div className="bg-[url('./assets/bgimage.jpeg')] h-full w-full bg-cover bg-center flex justify-center items-center px-4">
           <div className="max-w-[1360px] w-full">
             <div className="w-full md:w-[900px]">
-              <h5 className="uppercase leading-10 pl-2 relative text-white before:content-[' '] after:absolute after:left-0 after:top-0 after:h-full after:w-1 after:bg-normal text-base md:text-lg">
-                An Empowered Sri Lanka IPET.
-              </h5>
+              <div className="flex items-center">
+                <ReactTyped
+                  className="md:text-2xl sm:text-4xl font-bold pl-2 text-white"
+                  strings={["BTB", "BTC", "SASS"]}
+                  typeSpeed={120}
+                  backSpeed={140}
+                  loop
+                />
+                <h5 className="uppercase leading-10 pl-2 relative text-white before:content-[' '] after:absolute after:left-0 after:top-0 after:h-full after:w-1  text-base md:text-lg">
+                  An Empowered Sri Lanka IPET.
+                </h5>
+              </div>
               <h1 className="text-white text-4xl md:text-7xl leading-snug uppercase">
                 <span className="block ">Institute of</span>
                 <span className="block">Professional Engineers</span>
                 <span className="block">and Technologists</span>
               </h1>
-              <Button className="mt-4">Explore</Button>
+              <Button className="mt-4 hover:bg-blue-700">Explore</Button>
             </div>
           </div>
         </div>
       </div>
       <div className="w-full bg-white px-4 sm:px-0">
-        <div className="text-[20px] mt-10 justify-center flex">About us</div>
+        <div className="text-[20px] mt-20 justify-center flex">About us</div>
         <div className="text-[30px] flex justify-center font-bold text-normal">
           Our Mission and Vision
         </div>
-        <div className="gap-[30px] h-auto mx-auto grid md:grid-cols-2">
-          <img
-            className="w-full h-auto mt-20 mx-auto my-4 max-w-[526px] max-h-[494px]" // Ensuring the image scales well
-            src={group1}
-            alt="/"
-          />
+
+        <div className="gap-[30px] h-auto mx-auto grid md:grid-cols-2 items-start">
+          <div className="w-full flex justify-center">
+            <img
+              className="w-[526px] h-[494px] mt-20 object-cover"
+              src={group1}
+              alt="/"
+            />
+          </div>
+
           <div className="flex flex-col">
             <p className="text-[#2543B1] text-left text-[30px] leading-[45px] font-poppins font-semibold mt-20">
               Why Choose Us?
             </p>
-            <p className="font-poppins font-light text-justify mt-8 ">
+            <p className="font-poppins font-light text-justify mt-8 px-4">
               At the Institute of Engineering and Technologistics, we are
               committed to shaping the future of innovation and technology. Our
               programs are designed to provide students with a solid foundation
@@ -360,7 +434,7 @@ function App() {
               {features.map((items) => (
                 <div key={items.title} className="flex gap-5 items-center">
                   <div>
-                    <img src={items.icon} alt="/" />{" "}
+                    <img src={items.icon} alt="/" />
                   </div>
                   <div className="flex flex-col justify-start">
                     <h4 className="text-lg font-semibold text-left">
@@ -373,23 +447,28 @@ function App() {
                 </div>
               ))}
             </div>
-            <button className="bg-normal w-[115px] mt-6 h-[44px] px-5 py-1 text-white rounded-sm ml-2">
+            <button className="bg-[#2D387D] w-[115px] mt-6 h-[44px] hover:bg-blue-700 px-5 py-1 text-white rounded-sm ml-2">
               Explore
             </button>
           </div>
         </div>
+
         <div className="bg-dark mt-16 flex justify-center items-center h-[279px] max-w-[1512px] overflow-x-auto">
-          <div className="flex items-center gap-40 justify-center w-[1164px] h-[216px] ">
+          <div className="flex items-center gap-40 justify-center w-[1164px] h-[216px]">
             {statistics.map((item) => (
-              <div className="flex flex-col items-center  text-white justify-around">
+              <div
+                key={item.title}
+                className="flex flex-col items-center text-white justify-around"
+              >
                 <span className="flex justify-between">{item.icon}</span>
                 <span className="flex justify-between">{item.title}</span>
-                <span className=" font-bold text-2xl">{item.value}</span>
+                <span className="font-bold text-2xl">{item.value}</span>
               </div>
             ))}
           </div>
         </div>
       </div>
+
       {/* Courses Section */}
       <div className="flex justify-center bg-light px-4">
         <div className="max-w-[1360px] w-full">
@@ -399,43 +478,110 @@ function App() {
               Our Popular Courses
             </h2>
           </div>
-          <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {cards.map((card) => (
-              <div className="w-full flex flex-col justify-between bg-white">
-                <div className="relative">
-                  <div className="w-full object-contain bg-slate-400">
-                    <img
-                      className="h-full w-full object-contain"
-                      src={card.image}
-                    />
-                  </div>
-                  <div className="p-4">
-                    <h1 className="text-xl md:text-2xl">{card.title}</h1>
-                    <p className="mt-5 text-sm md:text-base">
-                      {card.description}
-                    </p>
-                  </div>
-                </div>
 
-                <div className="bg-normal text-white p-4 grid grid-cols-3">
-                  <span className="text-sm">{card.student_count} students</span>
-                  <span className="flex justify-center text-sm">
-                    {card.duration} hours
-                  </span>
-                  <span className="flex justify-end">
-                    <button>View</button>
-                  </span>
+          <div className="hidden md:block">
+            {/* Show grid for medium and larger screens */}
+            <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {cards.map((card, index) => (
+                <div
+                  key={index}
+                  className="w-full flex flex-col justify-between bg-white"
+                >
+                  <div className="relative">
+                    <div className="w-full object-contain bg-slate-400">
+                      <img
+                        className="h-full w-full object-contain"
+                        src={card.image}
+                        alt={card.title}
+                      />
+                    </div>
+                    <div className="p-4 min-h-[150px]">
+                      {" "}
+                      {/* Adjust the min height */}
+                      <h1 className="text-xl font-bold md:text-2xl line-clamp-2">
+                        {card.title}
+                      </h1>
+                      <p className="mt-5 text-sm md:text-base line-clamp-3">
+                        {card.description}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="bg-[#2D387D] text-white p-4 grid grid-cols-3">
+                    <span className="text-sm flex items-center">
+                      <FaUser className="mr-1" />
+                      {card.student_count} students
+                    </span>
+                    <span className="flex justify-center items-center text-sm">
+                      <FaClock className="mr-1" />
+                      {card.duration} months
+                    </span>
+                    <span className="flex justify-end">
+                      <button>View</button>
+                    </span>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
+
+          <div className="md:hidden">
+            {/* Show carousel for mobile */}
+            <Slider {...settings}>
+              {cards.map((card, index) => (
+                <div
+                  key={index}
+                  className="w-full flex flex-col justify-between bg-white h-[400px]"
+                >
+                  {" "}
+                  {/* Set fixed height for card */}
+                  <div className="relative flex flex-col flex-grow">
+                    <div className="w-full object-contain bg-slate-400 h-[200px]">
+                      {" "}
+                      {/* Fixed height for image */}
+                      <img
+                        className="h-full w-full object-fill"
+                        src={card.image}
+                        alt={card.title}
+                      />
+                    </div>
+                    <div className="p-4 flex flex-col flex-grow">
+                      <h1 className="text-xl font-bold md:text-2xl overflow-hidden text-ellipsis whitespace-nowrap mb-2">
+                        {card.title}
+                      </h1>
+                      <p className="text-sm md:text-base flex-grow overflow-hidden text-ellipsis">
+                        {card.description}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="bg-[#2D387D] text-white p-4 grid grid-cols-3">
+                    <span className="text-sm flex items-center">
+                      <FaUser className="mr-1" />
+                      {card.student_count} students
+                    </span>
+                    <span className="flex justify-center items-center text-sm">
+                      <FaClock className="mr-1" />
+                      {card.duration} months
+                    </span>
+                    <span className="flex justify-end">
+                      <button>View</button>
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </Slider>
+          </div>
+
           <div className="w-full flex justify-center mt-10 mb-20">
-            <Button>All Courses</Button>
+            <Button className="bg-[#2D387D] hover:bg-blue-700 text-white py-2 px-4 rounded">
+              All Courses
+            </Button>
           </div>
         </div>
       </div>
+
       <div className="flex justify-center px-4">
-        <div className="max-w-[1360px] w-full ">
+        <div className="max-w-[1360px] w-full">
           <div className="text-center h-[85px] flex flex-col justify-between my-[100px]">
             <h3 className="text-base md:text-lg">Our Directors</h3>
             <h2 className="text-2xl md:text-4xl text-normal font-semibold">
@@ -443,35 +589,74 @@ function App() {
             </h2>
           </div>
 
-          <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 shadow-lg p-10">
-            {directors.map((director) => (
-              <div className="w-full flex flex-col justify-between bg-light">
-                <div className="relative">
-                  <div className="w-full h-[250px] bg-slate-400 overflow-hidden">
-                    <img
-                      className="w-full h-full object-cover"
-                      src={director.image}
-                      alt={director.name}
-                    />
-                  </div>
-                  <div className="p-4 text-center">
-                    <h1 className="text-xl md:text-2xl text-normal font-semibold">
-                      {director.name}
-                    </h1>
-                    <p className="mt-5 text-sm md:text-base">
-                      {director.designation}
-                    </p>
+          {/* Grid for medium and large screens */}
+          <div className="hidden md:block">
+            <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 shadow-lg p-10">
+              {directors.map((director, index) => (
+                <div
+                  key={index}
+                  className="w-full flex flex-col justify-between bg-light"
+                >
+                  <div className="relative">
+                    <div className="w-full h-[250px] bg-slate-400 overflow-hidden">
+                      <img
+                        className="w-full h-full object-cover"
+                        src={director.image}
+                        alt={director.name}
+                      />
+                    </div>
+                    <div className="p-4 text-center">
+                      <h1 className="text-xl md:text-2xl text-normal font-semibold">
+                        {director.name}
+                      </h1>
+                      <p className="mt-5 text-sm md:text-base">
+                        {director.designation}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+          </div>
+
+          {/* Carousel for mobile */}
+          <div className="md:hidden">
+            <Slider {...settings}>
+              {directors.map((director, index) => (
+                <div
+                  key={index}
+                  className="w-full flex flex-col justify-between bg-light p-4"
+                >
+                  <div className="relative">
+                    <div className="w-full h-[250px] bg-slate-400 overflow-hidden">
+                      <img
+                        className="w-full h-full "
+                        src={director.image}
+                        alt={director.name}
+                      />
+                    </div>
+                    <div className="p-4 text-center">
+                      <h1 className="text-xl md:text-2xl text-normal font-semibold">
+                        {director.name}
+                      </h1>
+                      <p className="mt-5 text-sm md:text-base">
+                        {director.designation}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </Slider>
           </div>
 
           <div className="w-full flex justify-center mt-10 mb-20">
-            <Button>All Courses</Button>
+            <Button className="bg-[#2D387D] hover:bg-blue-700 text-white py-2 px-4 rounded">
+              All Courses
+            </Button>
           </div>
         </div>
       </div>
+      <Footer />
     </Wrapper>
   );
 }
