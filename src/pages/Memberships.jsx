@@ -31,39 +31,52 @@ const Memberships = () => {
       desc:'Take control of your future in the rapidly growing with Youth Club in Sri Lanka'
     }
   ]
-  return (
-    <div name='Memberships' className='w-full h-auto '>
-      <div className='bg-[#E9ECF7] max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full min-h-screen md:min-h-screen'>
-        <div className='pb-8'>
-          <p className='font-sans text-[#131313] text-center mt-10 text-sm'>Memberships</p>
-          <p className='text-[#452aa7] text-center text-2xl font-semibold py-6'>What we offer for your future</p>
-        </div>
+ return (
+  <div name="Memberships" className="w-full h-auto bg-[#E9ECF7]">
+    <div
+      className="bg-[#E9ECF7] max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full min-h-screen md:min-h-screen"
+    >
+      <div className="pb-8">
+        <p className="font-sans text-[#131313] text-center mt-10 text-sm">Memberships</p>
+        <p className="text-[#452aa7] text-center text-2xl font-semibold py-6">What we offer for your future</p>
+      </div>
 
-        <div className="w-full max-w-full p-4 sm:p-2"> 
-          <img src={Student_Desk} alt="Student_Group" className="w-full h-auto object-cover flex items-center justify-center" />
-        </div>
-        {/* Main container */}
-        <div className='border-1 border-[#c6c5c9] p-6 rounded-none shadow-lg flex items-center justify-center'>
-          {/* Grid Container */}
-        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mx-10 w-full max-w-screen-lg justify-center'> 
-          {
-            members.map(({id, src, name, desc}) => (
-             < div key={id} className="bg-[#ffffff] flex flex-col items-center justify-center -mt-44 rounded-none shadow-md w-64">
-                {/* Each card container */}
-                <img src={src} alt="" className="w-auto h-auto object-cover mt-4 m-4 " />
-                <p className="text-[#2543B1]  font-semibold mt-2 ">{name}</p>
-                <p className="text-[#777777]  text-sm font-normal mt-2 p-8 text-center ">{desc}</p>
-                <button onClick={onButtonClick} className='text-black px-1 py-1 mt-4 mb-6 text-xs mx-auto flex items-center hover:scale-105 duration-200 font-semibold poppins-thin'>Explore More +  </button>
-              </div>
-            )) 
-          }
-        </div>
-        </div>
-        <button onClick={onButtonClick} className='bg-[#2D387D] rounded-md px-1 py-1 my-auto mx-auto flex items-center hover:scale-105 duration-200 font-semibold poppins-thin text-white'>All Plans  </button>
+      <div className="w-full max-w-full p-4 sm:p-2">
+  <img src={Student_Desk} alt="Student_Group" className="w-full h-auto object-cover" />
+</div>
 
+{/* Main container */}
+<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 justify-center place-items-center">
+  {members.map(({ id, src, name, desc }) => (
+    <div key={id} className="bg-white flex flex-col items-center justify-center rounded-none shadow-md m-auto w-full sm:w-64 relative mt-8 sm:-mt-36">
+      {/* Each card container */}
+      <img src={src} alt={name} className="w-auto h-auto object-cover mt-4" />
+      <p className="text-[#2543B1] font-semibold mt-2">{name}</p>
+      <p className="text-[#777777] text-sm font-normal mt-2 p-4 text-center">{desc}</p>
+      <button
+        onClick={onButtonClick}
+        className="text-black px-4 py-1 mb-10 text-xs sm:text-base mx-auto flex items-center hover:scale-105 duration-200 font-semibold"
+      >
+        Explore More +
+      </button>
+    </div>
+  ))}
+</div>
+
+      <div className="mt-3">
+        <button
+          onClick={onButtonClick}
+          className="bg-[#2D387D] mt-6 rounded-md px-6 py-2 my-auto mx-auto flex items-center hover:scale-105 duration-200 text-sm font-normal poppins-thin text-white"
+        >
+          All Plans
+        </button>
+        <br />
+        <br />
+        <br />
       </div>
     </div>
-  )
+  </div>
+);
 }
 
 export default Memberships
