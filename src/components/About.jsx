@@ -25,7 +25,7 @@ const About = () => {
           <p className="text-[#2543B1] text-left text-[30px] leading-[45px] font-poppins font-semibold mt-20">
             Why Choose Us?
           </p>
-          <p className="px-4 mt-8 font-light text-justify font-poppins">
+          <p className="pr-4 mt-8 font-light text-justify font-poppins">
             At the Institute of Engineering and Technologistics, we are
             committed to shaping the future of innovation and technology. Our
             programs are designed to provide students with a solid foundation in
@@ -71,20 +71,23 @@ const About = () => {
         </div>
       </div>
 
-      <div className="bg-dark mt-16 flex justify-center items-center h-[279px] max-w-[1512px] overflow-x-auto">
-        <div className="flex items-center gap-40 justify-center w-[1164px] h-[216px]">
-          {statistics.map((item) => (
-            <div
-              key={item.title}
-              className="flex flex-col items-center justify-around text-white"
-            >
-              <span className="flex justify-center">{<item.icon />}</span>{" "}
-              {/* Render icon as a component */}
-              <span className="flex justify-center font-poppins">
-                {item.title}
-              </span>
-              <span className="text-2xl font-bold">{item.value}</span>
-            </div>
+      <div className="bg-dark mt-16 flex justify-center items-center h-full max-w-[1512px] min-h-screen sm:min-h-[279px]">
+        <div className="flex flex-col items-center justify-center w-full h-full gap-10 sm:flex-row sm:gap-40">
+          {statistics.map((item, index) => (
+            <React.Fragment key={item.title}>
+              <div className="flex flex-col items-center justify-around text-white">
+                <span className="flex justify-center">{<item.icon />}</span>
+                <span className="flex justify-center font-poppins">
+                  {item.title}
+                </span>
+                <span className="text-2xl font-bold">{item.value}</span>
+              </div>
+
+              {/* Add hr for mobile responsiveness */}
+              {index < statistics.length - 1 && (
+                <hr className="border-t-1 border-white w-[300px] sm:hidden" />
+              )}
+            </React.Fragment>
           ))}
         </div>
       </div>

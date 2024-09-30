@@ -1,5 +1,5 @@
 export const ICFacebook = () => (
-  <span className=" cursor-pointer">
+  <span className="cursor-pointer ">
     <svg
       width="30"
       height="30"
@@ -16,7 +16,7 @@ export const ICFacebook = () => (
 );
 
 export const ICTwitter = () => (
-  <span className=" cursor-pointer">
+  <span className="cursor-pointer ">
     <svg
       width="30"
       height="30"
@@ -33,7 +33,7 @@ export const ICTwitter = () => (
 );
 
 export const ICLinkedIn = () => (
-  <span className=" cursor-pointer">
+  <span className="cursor-pointer ">
     <svg
       width="30"
       height="30"
@@ -50,7 +50,7 @@ export const ICLinkedIn = () => (
 );
 
 export const ICYoutube = () => (
-  <span className=" cursor-pointer">
+  <span className="cursor-pointer ">
     <svg
       width="30"
       height="30"

@@ -8,7 +8,7 @@ import {
   ICYoutube,
   Logo,
   LogoText,
-} from "../assets/index"; // Adjust if the files are inside `icons/` subfolder
+} from "../assets/index";
 
 import Button from "./Button";
 
@@ -21,8 +21,8 @@ function Navbar() {
 
   return (
     <>
-      <div className="flex justify-center w-full p-2">
-        <div className="max-w-[1360px] w-full h-[90px] flex items-center justify-between">
+      <div className="fixed top-[74px] left-0 w-full p-2 bg-white shadow-md z-30">
+        <div className="max-w-[1360px] w-full h-[90px] flex items-center justify-between mx-auto">
           <div className="flex items-center gap-5">
             <Logo />
             <LogoText />
@@ -58,7 +58,7 @@ function Navbar() {
                   Courses
                 </a>
                 <span className="flex items-center ml-2">
-                  <SlArrowDown /> {/* Add the icon here */}
+                  <SlArrowDown />
                 </span>
                 <ul className="absolute left-0 hidden p-2 mt-2 space-y-2 bg-white border rounded-lg shadow-lg group-hover:block group-focus-within:block">
                   <li>

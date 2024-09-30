@@ -32,7 +32,7 @@ const Courses = () => {
                       alt={card.title}
                     />
                   </div>
-                  <div className="p-4">
+                  <div className="p-4 ">
                     <h1 className="mt-4 overflow-hidden text-xl font-bold md:text-2xl line-clamp-2 font-poppins h-14">
                       {card.title}
                     </h1>

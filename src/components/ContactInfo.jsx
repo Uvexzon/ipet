@@ -4,7 +4,7 @@ import { ICFacebook, ICLinkedIn, ICTwitter, ICYoutube } from "../assets";
 const ContactInfo = () => {
   return (
     <>
-      <div className="bg-dark w-full h-[74px] flex items-center text-white justify-center p-2">
+      <div className="bg-dark w-full h-[74px] flex items-center text-white justify-center p-2 fixed top-0 z-30 ">
         <div className="w-full max-w-[1360px] h-full flex justify-between items-center">
           {/* Left Side: Contact Info */}
           <div className="flex flex-col justify-start gap-5 sm:flex-row">
