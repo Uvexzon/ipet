@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { SlArrowDown } from "react-icons/sl";
+import icon from "../assets/icon.jpeg";
+import icon2 from "../assets/icon2.png";
 import {
   ICFacebook,
   ICLinkedIn,
@@ -23,8 +25,8 @@ function Navbar() {
     <>
       <div className="fixed top-[74px] left-0 w-full p-2 bg-white shadow-md z-30">
         <div className="max-w-[1360px] w-full h-[90px] flex items-center justify-between mx-auto">
-          <div className="flex items-center gap-5">
-            <Logo />
+          <div className="flex items-center ">
+            <img src={icon2} alt="Logo" className="w-[200px] h-[200px]  " />
             <LogoText />
           </div>
 
@@ -38,7 +40,7 @@ function Navbar() {
           </div>
 
           {/* Navigation Links */}
-          <div className="hidden mt-4 lg:block">
+          <div className="hidden mt-2 lg:block">
             <ul className="flex gap-4">
               <li>
                 <a href="#hero" className="hover:underline font-poppins">

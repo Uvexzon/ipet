@@ -1,5 +1,6 @@
 import React from "react";
 import frame4 from "../assets/Frame 4.svg";
+import icon2 from "../assets/icon2.png";
 import {
   FaDribbbleSquare,
   FaFacebookSquare,
@@ -20,7 +21,7 @@ const Footer = () => {
             <div className="flex flex-col items-center justify-center md:flex-row">
               <div className="flex flex-col items-center ">
                 <FaPhoneVolume size={30} className="mb-5" />
-                +94 123 456 78
+                +94 77 117 0441
               </div>
               <hr className="border-white my-4 md:hidden w-[75%] mx-auto" />
               <hr className="hidden h-32 mx-4 border-l-2 border-white md:block opacity-35" />
@@ -30,7 +31,7 @@ const Footer = () => {
             <div className="flex flex-col items-center justify-center md:flex-row">
               <div className="flex flex-col items-center font-poppins">
                 <FaLocationDot size={30} className="mb-5" />
-                NO 61, High Level, Nugegoda
+                NO 60,weeragula,Yakkala
               </div>
               <hr className="border-white my-4 md:hidden w-[75%] mx-auto" />
               <hr className="hidden h-32 mx-4 border-l-2 border-white md:block opacity-35" />
@@ -40,7 +41,7 @@ const Footer = () => {
             <div className="flex items-center justify-center">
               <div className="flex flex-col items-center font-poppins">
                 <MdEmail size={30} className="mb-5" />
-                ipetsrilanka@gmail.com
+                info@ipet.lk
               </div>
             </div>
           </div>
@@ -54,13 +55,13 @@ const Footer = () => {
             {/* Logo and description */}
             <div className="flex flex-col items-center justify-center">
               <img
-                className="w-full h-auto mb-8 my-4 mx-10 max-w-[526px] max-h-[494px]"
-                src={frame4}
+                className="w-[150px] h-[150px]  max-w-[526px] max-h-[494px]"
+                src={icon2}
                 alt="/"
               />
-              <p>Follow Us On</p>
+              <p className="">Follow Us On</p>
               {/* Social media icons */}
-              <div className="flex justify-center gap-6 my-6 mb-10">
+              <div className="flex justify-center gap-2 my-6 mb-24">
                 <div className="p-1 border border-gray-300">
                   <FaFacebookSquare size={30} />
                 </div>

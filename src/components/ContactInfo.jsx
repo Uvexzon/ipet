@@ -7,13 +7,13 @@ const ContactInfo = () => {
       <div className="bg-dark w-full h-[74px] flex items-center text-white justify-center p-2 fixed top-0 z-30 ">
         <div className="w-full max-w-[1360px] h-full flex justify-between items-center">
           {/* Left Side: Contact Info */}
-          <div className="flex flex-col justify-start gap-5 sm:flex-row">
-            <span className="flex gap-1">
+          <div className="flex flex-col justify-start gap-5 divide-x-1 sm:flex-row ">
+            <span className="flex gap-1 ">
               <b className="font-poppins">Call:</b>
               <p>+9412345678</p>
             </span>
-            <div className="hidden sm:block h-full w-[1px] bg-neutral-300"></div>
-            <span className="flex gap-1">
+            <div className="hidden sm:block h-6 w-[1px] bg-neutral-300"></div>
+            <span className="flex gap-1 ">
               <b className="font-poppins">Email:</b>
               <p>ipetsrilanka@gmail.com</p>
             </span>

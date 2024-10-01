@@ -30,7 +30,7 @@ import image3 from "../assets/images/image3.jpeg";
 // Exporting the `features` array
 export const features = [
   {
-    title: "Facilities",
+    title: "Facilities  ",
     description: "Computer Facilities",
     icon: frame17,
   },
