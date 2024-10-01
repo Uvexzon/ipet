@@ -11,7 +11,10 @@ import Navbar from "./components/NavBar";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Courses from "./components/Courses";
-import Directors from "./components/Directors";
+//import Directors from "./components/Directors";
+import Directors from "./pages/Directors";
+import Memberships from "./pages/Memberships";
+import News from './pages/News';
 
 function App() {
   return (
@@ -31,6 +34,11 @@ function App() {
       </div>
       <div className="flex justify-center px-4" id="memberships">
         <Directors />
+      </div>
+       <div>
+        <Directors />
+        <Memberships/>
+        <News/>
       </div>
       <Footer />
     </Wrapper>
