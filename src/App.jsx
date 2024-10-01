@@ -36,7 +36,7 @@ function App() {
         <Directors />
       </div>
        <div>
-        <Directors />
+        {/* <Directors /> */}
         <Memberships/>
         <News/>
       </div>
