@@ -15,20 +15,20 @@ const Memberships = () => {
     {
       id:1,
       src:Image2,
-      name:'Youth Club',
-      desc: 'Take control of your future in the rapidly growing with Youth Club in Sri Lanka',
+      name:'Student Member - S M iPET',
+      desc: 'After completing school and following engineering / technology diploma courses . . .',
     },
     {
       id:2,
       src:Image3,
-      name:'FRIC',
-      desc:'Take control of your future in the rapidly growing with Youth Club in Sri Lanka'
+      name:'Technical Member - T. M iPET',
+      desc:'Obtained the certificate of proficiency in the field relevant to the subject area not . . .'
     },
     {
       id:3,
       src:Image,
-      name:'Tech Innovators Hub',
-      desc:'Take control of your future in the rapidly growing with Youth Club in Sri Lanka'
+      name:'Graduate Engineer - G Eng. iPET',
+      desc:'After completing a Bachelor of Science in Engineering OR Bachelor of Engineering or . . .'
     }
   ]
  return (
@@ -46,9 +46,9 @@ const Memberships = () => {
 </div>
 
 {/* Main container */}
-<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 justify-center place-items-center">
+<div className="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-0 justify-center place-items-center">
   {members.map(({ id, src, name, desc }) => (
-    <div key={id} className="bg-white flex flex-col items-center justify-center rounded-none shadow-md m-auto w-full sm:w-64 relative mt-8 sm:-mt-36">
+    <div key={id} className="bg-white flex flex-col items-center justify-center rounded-none shadow-md m-auto w-full sm:w-72 relative mt-8 sm:-mt-36">
       {/* Each card container */}
       <img src={src} alt={name} className="w-auto h-auto object-cover mt-4" />
       <p className="text-[#2543B1] font-semibold mt-2">{name}</p>

@@ -1,43 +1,43 @@
 import React from 'react'
-import DrNadeesh from '../assets/DrNadeesh.png'
-import DrAdhi from '../assets/DrAdhi.png'
-import MsMishel from '../assets/Ms Mishel.png'
-import MsTrarindi from '../assets/Ms Tharindi.png'
-import { Carousel } from 'flowbite-react'
+import Lakitha from '../assets/Directors/Lakitha.jpg'
+import Nalaka from '../assets/Directors/Nalaka.jpg'
+import Daham from '../assets/Directors/Daham.jpg'
+import Prabaheran from '../assets/Directors/Prabaheran.jpg'
+// import { Carousel } from 'flowbite-react'
 
 const Directors = () => {
   // Array of Director Details
   const directors = [
     {
       id:1,
-      src: DrNadeesh,
-      desc: 'HON. DR. NADEESH',
-      desc1:'PERERA',
-      brief1:'CEO at Training Athority',
+      src: Lakitha,
+      desc: 'Mr.D.D.L Rathnaweera',
+      desc1:'BEng(HONS)',
+      brief1:'AM iPET',
       brief2:'Sri Lanka'
     },
     {
       id:2,
-      src: MsTrarindi,
-      desc:'MS THARINDI GAMAGE', 
-      desc1:'SILVA',
-      brief1:'Director at Digital',
-      brief2:'Marketing'
+      src: Nalaka,
+      desc:'Mr. Nalaka Prabath', 
+      desc1:'BEng(UK)',
+      brief1:'AM iPET',
+      brief2:'Sri Lanka'
     },
     {
       id:3,
-      src: DrAdhi,
-      desc:'HON. DR. ADHI', 
-      desc1:'PERERA',
-      brief1:'CEO at Training Athority',
+      src: Daham,
+      desc:'Mr. Daham Hewage', 
+      desc1:'BEng(HONS)',
+      brief1:'Member iPET',
       brief2:'Sri Lanka'
     },
     {
       id:4,
-      src: MsMishel,
-      desc:'MS MISHEL DE',
-      desc1:'GAMAGE',
-      brief1:'IT Systems Architecture',
+      src: Prabaheran,
+      desc:'Mr. S.R.R.K.Prabaheran',
+      desc1:'BSc(HONS)',
+      brief1:'Member iPET',
       brief2:'Sri lanka'
     },
     
@@ -59,7 +59,7 @@ const Directors = () => {
                 {/* Each director's container */}
                 <img src={src} alt="" className="w-56 h-56 object-cover" />
                 <p className="text-[#452aa7] font-semibold mt-2">{desc}</p>
-                <p className="text-[#452aa7] font-semibold">{desc1}</p>
+                <p className="text-[#452aa7] text-sm font-semibold">{desc1}</p>
                 <p className="text-[#090909] font-semibold mt-3 text-xs">{brief1}</p>
                 <p className="text-[#090909] font-semibold text-xs mb-10">{brief2}</p>
               </div>
