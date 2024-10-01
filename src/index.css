@@ -14,3 +14,8 @@
 .slick-slide > dev{
     margin:0 10px;
 }
+
+
+html {
+    scroll-behavior: smooth;
+}
